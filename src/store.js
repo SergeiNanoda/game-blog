@@ -1,5 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import postSliceReducer from "./features/postSlice";
 
-const store = configureStore({});
+const store = configureStore({
+  reducer: {
+    posts: postSliceReducer,
+  },
+});
 export default store;
