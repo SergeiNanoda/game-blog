@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./posts.css";
 import Post from "../post/Post";
 import { useDispatch } from "react-redux";
-import { fetchPosts } from "../features/postSlice";
+import { fetchPosts } from "../../features/postSlice";
 import { useSelector } from "react-redux";
 
 export default function Posts() {

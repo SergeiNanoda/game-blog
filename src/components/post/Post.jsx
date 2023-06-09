@@ -2,9 +2,12 @@ import React from "react";
 import "./post.css";
 
 export default function Post(props) {
-  let { title, content, category, image } = props.value;
+  let { id, title, content, category, image } = props.value;
   return (
-    <div className="post">
+    <div
+      className="post"
+      onClick={() => (window.location.href = `/article/${id}`)} // '/article/:id'
+    >
       <img src={image} alt="PostImage" className="postImg" />
       <div className="postInfo">
         <span className="postCat">{category}</span>
