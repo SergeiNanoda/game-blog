@@ -1,11 +1,13 @@
 import React from "react";
 import "./headerbar.css";
-
+import { useNavigate } from "react-router-dom";
 export default function HeaderBar() {
+  const navigate = useNavigate();
   return (
     <div className="top">
       <div className="topLeft">
         <i
+          onClick={() => navigate("/")}
           className="homeIcon fa-brands fa-fort-awesome"
           style={{ color: "#000000" }}
         ></i>

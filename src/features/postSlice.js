@@ -4,6 +4,7 @@ import fetchRequest from "../utils/utils";
 
 export const fetchPosts = createAsyncThunk("posts/addPosts", async () => {
   // Request ('/posts')
+  console.log("createAsyncThunk");
   const response = await fetchRequest("/posts");
   return response;
 });

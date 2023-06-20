@@ -1,12 +1,14 @@
 import React from "react";
 import "./post.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Post(props) {
+  const navigate = useNavigate();
   let { id, title, content, category, image } = props.value;
   return (
     <div
       className="post"
-      onClick={() => (window.location.href = `/article/${id}`)} // '/article/:id'
+      onClick={() => navigate(`/article/${id}`)} // '/article/:id'
     >
       <img src={image} alt="PostImage" className="postImg" />
       <div className="postInfo">
