@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import fetchRequest from "../utils/utils";
 
-export const fetchPosts = createAsyncThunk("posts/addPosts", async () => {
-  // Request ('/posts')
-  console.log("createAsyncThunk");
-  const response = await fetchRequest("/posts");
+export const fetchPosts = createAsyncThunk("posts/addPosts", async (params) => {
+  const { categoryId } = params || {};
+  const url = categoryId ? `/posts?categoryId=${categoryId}` : "/posts";
+  const response = await fetchRequest(url);
   return response;
 });
 

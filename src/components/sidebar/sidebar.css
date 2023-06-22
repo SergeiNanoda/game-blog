@@ -49,6 +49,7 @@
 .sidebarListItem {
   margin-top: 15px;
   cursor: pointer;
+  font-size: 20px;
 }
 .sidebarListItem:hover {
   color: rgb(5, 226, 119);

@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./sidebar.css";
+import { useNavigate } from "react-router-dom";
+import fetchRequest from "../../utils/utils";
+
 export default function Sidebar() {
+  const navigate = useNavigate();
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const result = await fetchRequest(`/categories`);
+        setCategories(result);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchCategories();
+  }, []);
+
   return (
     <div className="sidebar">
       <div className="sidebarItem">
@@ -23,10 +41,14 @@ export default function Sidebar() {
       <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
         <ul className="sidebarList">
-          <li className="sidebarListItem">GAME NEWS</li>
-          <li className="sidebarListItem">REVIEWS</li>
-          <li className="sidebarListItem">GUIDES</li>
-          <li className="sidebarListItem">FEATURES</li>
+          {categories.map((category) => (
+            <li
+              className="sidebarListItem"
+              onClick={() => navigate(`/category/${category.id}`)}
+            >
+              {category.title}
+            </li>
+          ))}
         </ul>
       </div>
     </div>
