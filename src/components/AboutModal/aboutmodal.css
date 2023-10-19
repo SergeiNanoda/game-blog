@@ -1,0 +1,14 @@
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.imageAboutModal {
+  max-width: 100%;
+  height: auto;
+}
+.contentAboutModal {
+  text-align: center;
+}

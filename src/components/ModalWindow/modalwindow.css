@@ -1,0 +1,90 @@
+.overlay {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.overlay.active {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+}
+.modal_content {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 18px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  transform: scale(0.5);
+  transition: 0.4s all;
+  min-width: 50vw;
+  max-width: 50rem;
+  min-height: 50vh;
+  max-height: 90%;
+  position: relative;
+  z-index: 2;
+}
+.modal_content.active {
+  transform: scale(1);
+}
+.modalButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(5, 226, 119);
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  right: 22px;
+  top: 12px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.4;
+}
+.modalButton:hover {
+  opacity: 1;
+}
+
+.modal_header {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal_footer {
+  padding: 10px;
+  margin-top: 15px;
+}
+.modalCloseButton {
+  text-align: center;
+  width: 12px;
+  height: 12px;
+  border: none;
+}
+
+.modalButton svg {
+  width: 22px;
+  height: 22px;
+}
+.modal_body {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
