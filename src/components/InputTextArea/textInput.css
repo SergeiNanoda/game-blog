@@ -1,0 +1,21 @@
+label {
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+.inputArea {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+.errorMessage {
+  height: 30px;
+  color: red;
+  padding-left: 5px;
+}
+.errorMessage > p {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}

@@ -1,0 +1,16 @@
+.accentButton {
+  cursor: pointer;
+  margin-top: 20px;
+  background-color: rgb(5, 226, 119);
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+.neutralButton {
+  cursor: pointer;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: rgb(5, 144, 152);
+  border: none;
+}
