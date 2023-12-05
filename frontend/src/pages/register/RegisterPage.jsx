@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import TextInput from "../../components/InputTextArea/TextInput";
 import Button from "../../components/Button/Button";
+import { fetchAuthRequest } from "../../utils/utils";
 
 export default function RegisterPage() {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ export default function RegisterPage() {
       <form onSubmit={handleSubmit(onSubmit)} className="registerForm">
         <TextInput
           register={{
-            ...register("userName", {
+            ...register("username", {
               required: "Field is required",
               minLength: {
                 value: 5,
