@@ -1,13 +1,15 @@
 import HeaderBar from "./components/headerbar/HeaderBar";
 import FooterBar from "./components/footer/FooterBar";
 import { Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App(props) {
   console.log(props);
   return (
     <div className="App">
       <HeaderBar />
-
+      <ToastContainer />
       {/* <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />

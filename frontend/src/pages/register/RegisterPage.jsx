@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import TextInput from "../../components/InputTextArea/TextInput";
 import Button from "../../components/Button/Button";
 import { fetchAuthRequest } from "../../utils/utils";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function RegisterPage() {
   const navigate = useNavigate();
@@ -15,7 +17,40 @@ export default function RegisterPage() {
     reset,
   } = useForm({ mode: "onChange" });
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+    const result = fetchAuthRequest("/register", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    result
+      .then((response) => {
+        toast.success(response.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log({ error });
+        toast.error(error.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
     reset();
   };
   return (

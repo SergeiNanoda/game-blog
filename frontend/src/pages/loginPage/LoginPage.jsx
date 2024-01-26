@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import TextInput from "../../components/InputTextArea/TextInput";
 import Button from "../../components/Button/Button";
+import { fetchAuthRequest } from "../../utils/utils";
+import { toast } from "react-toastify";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -14,7 +16,41 @@ export default function LoginPage() {
     reset,
   } = useForm({ mode: "onChange" });
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+    const result = fetchAuthRequest("/login", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    result
+      .then((response) => {
+        toast.success(response.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        localStorage.setItem("TOKEN", response.token);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log({ error });
+        toast.error(error.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
     reset();
   };
 

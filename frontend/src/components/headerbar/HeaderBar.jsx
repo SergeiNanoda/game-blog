@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { modalAboutToggled } from "../../features/modalSlice";
 import { useDispatch } from "react-redux";
 import AboutModal from "../AboutModal/AboutModal";
+import AuthButton from "../AuthButton/AuthButton";
 
 export default function HeaderBar() {
   const dispatch = useDispatch();
@@ -28,10 +29,10 @@ export default function HeaderBar() {
               ABOUT
             </li>
             <li className="headListItem contact">CONTACT</li>
-            <li className="headListItem login">LOGOUT</li>
           </ul>
         </div>
         <div className="topRight">
+          <AuthButton></AuthButton>
           <img
             onClick={() => navigate("/login")}
             className="headImg"

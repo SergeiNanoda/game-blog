@@ -13,6 +13,12 @@ export default async function fetchRequest(url, params) {
 
 export async function fetchAuthRequest(url, params) {
   let response = await fetch(`${AUTH_API_URL}${url}`, params);
+
   let result = await response.json();
+
+  if (!response.ok) {
+    throw new Error(result.message);
+  }
+
   return result;
 }
