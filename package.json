@@ -1,0 +1,18 @@
+{
+  "name": "game-blog",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "license": "UNLICENSED",
+  "workspaces": [
+    "packages/frontend",
+    "packages/backend"
+  ],
+  "scripts": {
+    "start": "npm run start -w=packages/frontend",
+    "start:be": "npm run start:be -w=packages/frontend",
+    "start:server": "npm run start:server -w=packages/backend",
+    "build": "npm run build -w=packages/frontend"
+  },
+  "devDependencies": {}
+}
