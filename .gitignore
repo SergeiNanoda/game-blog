@@ -22,3 +22,5 @@ packages/frontend/yarn-error.log*
 packages/backend/npm-debug.log*
 packages/backend/yarn-debug.log*
 packages/backend/yarn-error.log*
+
+test/
